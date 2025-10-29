@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Aplicação</title>
+    <link rel="stylesheet" href="/style.css"> 
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Usuários</h1>
+        <p>Este HTML foi gerado no servidor pelo Express e EJS!</p>
+        
+        <ul id="lista-usuarios">
+            <% if (usuarios.length > 0) { %>
+                <% usuarios.forEach(usuario => { %>
+                    <li>
+                        <span class="nome"><%= usuario.nome %></span>
+                        <span class="email"><%= usuario.email %></span>
+                    </li>
+                <% }) %>
+            <% } else { %>
+                <li>Nenhum usuário encontrado.</li>
+            <% } %>
+        </ul>
+    </div>
+</body>
+</html>

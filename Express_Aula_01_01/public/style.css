@@ -1,0 +1,53 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    padding: 40px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+h1 {
+    color: #007bff;
+    margin-bottom: 30px;
+}
+
+#lista-usuarios {
+    list-style-type: none;
+    padding: 0;
+    text-align: left;
+}
+
+#lista-usuarios li {
+    background-color: #e9ecef;
+    border: 1px solid #dee2e6;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+#lista-usuarios .nome {
+    font-weight: bold;
+    color: #495057;
+}
+
+#lista-usuarios .email {
+    color: #6c757d;
+    font-size: 0.9em;
+    display: block;
+    margin-top: 5px;
+}
