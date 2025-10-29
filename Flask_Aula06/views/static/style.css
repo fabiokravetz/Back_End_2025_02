@@ -1,0 +1,14 @@
+/* Estilo para mensagens de erro */
+.error {
+    color: red;
+}
+
+/* Estilo para mensagens de sucesso */
+.success {
+    color: green;
+}
+
+body{
+    background-color: antiquewhite;
+    text-align: center;
+}

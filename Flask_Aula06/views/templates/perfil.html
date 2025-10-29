@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Perfil do Usuário</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('home') }}">Home</a> |
+        <a href="{{ url_for('perfil') }}">Ver Perfil</a> |
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </nav>
+    <hr>
+    <h2>Perfil do Usuário</h2>
+    <p><strong>ID:</strong> {{ usuario.id }}</p>
+    <p><strong>Nome:</strong> {{ usuario.nome }}</p>
+    <p><strong>Email:</strong> {{ usuario.email }}</p>
+</body>
+</html>
