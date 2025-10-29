@@ -1,0 +1,23 @@
+body{
+    background-color: #f0f0f0;
+    text-align: center;
+}
+
+.tabela-container{
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.tabela-estilizada{
+    border-collapse: collapse;
+    width: 80%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.tabela-estilizada, th
+.tabela-estilizada, td{
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}

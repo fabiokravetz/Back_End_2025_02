@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Times</title>
+    <!--Link para o CSS-->
+    <link href="{{url_for('static', filename='style.css')}}" rel="stylesheet">
+</head>
+<body>
+    <div class="conteiner">
+        <h1>{{ mensagem }}</h1>
+    </div>
+    <div class="tabela-container">
+        <table class="tabela-estilizada">
+            <thead>
+                <th>Times</th>
+            </thead>
+            <tbody>
+                <!--Para fazer a estrutura de repetição são necessários os comandos abaixo-->
+                {% for times in lista %}
+                <tr>
+                    <td>{{ times }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+
+<!--
+1) Elabore uma calculadora que realize as 4 operações matemáticas básicas (adição, subtração, multiplicação e divisão) a partir de dois números informados via formulário HTML. Ressalta-se que o resultado deve apresentar somente duas casas decimais após a vírgula.
+-->
