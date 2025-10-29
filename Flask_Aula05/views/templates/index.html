@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Usuários</title>
+</head>
+<body>
+    <div>
+        <h1>Usuários Cadastrados</h1>
+        <div>
+            <a href="/contact">
+                Adicionar Novo Usuário
+            </a>
+        </div>
+        <div class="tabela-conteiner">
+            <table class="tabela-estilizada">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                    <tr>
+                        <td><p>{{ user.id }}</p></td>
+                        <td><p>{{ user.name }}</p></td>
+                        <td><p>{{ user.email }}</p></td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="3">Nenhum usuário cadastrado.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
