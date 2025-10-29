@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD</title>
+</head>
+<body>
+    <h1>Atualização de usuário</h1>
+    <form action="" method="POST">
+        <label>Nome:</label>
+        <input type="text" name="nome" value="{{infos.nome}}" required>
+
+        <label>Idade:</label>
+        <input type="text" name="idade" value="{{infos.idade}}" required>
+
+        <label>Cidade:</label>
+        <input type="text" name="cidade" value="{{infos.cidade}}" required>
+        <input type="submit" value="Atualizar">
+    </form>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD com MySQL</title>
+</head>
+<body>
+    <h1>CRUD</h1>
+
+    <h4>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    {{message}}
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </h4>
+
+    <p><a href="{{url_for('addUsuarios')}}">Adicionar Usuários</a></p>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Idade</th>
+            <th>Cidade</th>
+            <th>Editar</th>
+            <th>Deletar</th>
+        </tr>
+        {% for data in dados %}
+            <tr>
+                <td>{{ data.id }}</td>
+                <td>{{ data.nome }}</td>
+                <td>{{ data.idade }}</td>
+                <td>{{ data.cidade }}</td>
+                <!--Opção de Atualizar Registros-->
+                <td><a href="{{url_for('editUsuarios', id=data.id)}}">Editar</a></td>
+
+                 <!--Opção de Deletar Registros-->
+                <td><a onclick="return confirm('Deletar registro?');" href="{{url_for('deleteUsuarios', id=data.id)}}">Deletar</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
