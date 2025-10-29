@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="stylesheet" href="/css/style.css">
+    <meta charset="UTF-8">
+    <title>CRUD de Produtos</title>
+</head>
+<body>
+    <h1>Gerenciador de Produtos</h1>
+    <form action="/adicionar" method="POST">
+        <input type="text" name="nome" placeholder="Nome do Produto" required><br>
+        <input type="number" step="0.01" name="preco" placeholder="Preço" required><br>
+        <textarea name="descricao" placeholder="Descrição"></textarea>
+        <button type="submit">Adicionar</button>
+    </form>
+    <h2>Lista de Produtos</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Preço</th>
+                <th>Descrição</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <%#
+                produto.preco -> É o número original informado pelo usuário no formulário
+
+                .toLocaleString(...) -> Função responsável pela formatação do valor informado
+                em valor monetário.
+
+                'pt-BR' -> Garante o ponto (.) como separador de milhar e a vírgula como 
+                separador decimal.
+
+                style: 'currency' -> Formatar como valor monetário.
+
+                currency: 'BRL' -> A moeda específica é o Real Brasileiro, o que faz como que
+                R$ seja adicionado automaticamente.
+            %>
+
+            <% produtos.forEach(produto => { %>
+                <tr>
+                    <td><%= produto.id %></td>
+                    <td><%= produto.nome %></td>
+                    <td><%= produto.preco.toLocaleString('pt-BR', { style: 'currency', 			    currency: 'BRL' }) %></td>
+                    <td><%= produto.descricao %></td>
+                    <td class="actions">
+                    <a href="/editar/<%= produto.id %>">Editar</a>
+                        <form action="/deletar/<%= produto.id %>" method="POST" style="display:inline;" onsubmit="return confirm('Tem certeza que deseja deletar este produto?');">
+                            <button type="submit" class="link-button">Deletar</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,55 @@
+/* 1. Cor de fundo para a página e fonte básica */
+body {
+  font-family: sans-serif;
+  background-color: antiquewhite; 
+  margin: 0;
+  padding: 2rem;
+}
+
+/* 2. Centraliza os blocos de conteúdo principais */
+h1, h2, form, table, .link-voltar {
+  max-width: 800px; /* Define uma largura máxima para o conteúdo */
+  margin-left: auto;   /* Centraliza horizontalmente */
+  margin-right: auto;  /* Centraliza horizontalmente */
+  margin-bottom: 1.5rem; /* Espaçamento entre eles */
+}
+
+/* 3. Organiza os campos do formulário */
+form {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column; /* Coloca os campos um abaixo do outro */
+}
+
+/* 4. Estilos mínimos para campos e botão */ 
+input, textarea, button {
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  background-color: green;
+  color: white;
+  cursor: pointer;
+}
+
+/* 5. Estilos básicos para a tabela */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffffff;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 0.8rem;
+  text-align: left;
+}
+
+th {
+  background-color: #e9ecef;
+}
