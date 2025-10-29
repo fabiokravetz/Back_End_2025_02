@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+     <!--Link para o CSS-->
+    <link href="{{url_for('static', filename='style.css')}}" rel="stylesheet">
+</head>
+<body>
+    <h1>Calculadora Básica</h1>
+
+    <!--step="any" -> Permite a digitação de qualquer tipo de número-->
+    <form method="POST">
+        <input type="number" name="num_01" placeholder="Informe o 1º número" step="any" required>
+        <input type="number" name="num_02" placeholder="Informe o 2º número" step="any" required>
+
+        <select name="op" required>
+            <option value="soma">+</option>
+            <option value="subtracao">-</option>
+            <option value="mult">x</option>
+            <option value="divisao">/</option>
+        </select>
+        <button type="submit">=</button>
+    </form>
+
+    <!--
+        <h2> -> Aplica uma classe css (erro) ao elemento <h2> se a string "Erro" estiver presente no resultado.
+
+        resultado|string: Converte a variável "resultado" para string, caso essa não seja.
+
+        O símbolo | representa um filtro, que é usado para aplicar transformações as variáveis
+    -->
+
+    {% if resultado is not none %}
+        <h2 {% if "Erro" in resultado|string %} class="erro"{% endif %}>
+            Resultado:
+            {% if resultado is number %}
+                {{ "%.2f"|format(resultado)|replace(".", ",") }}
+            {% else %}
+                {{resultado}}
+            {% endif %}
+        </h2>
+    {% endif %}
+
+</body>
+</html>
