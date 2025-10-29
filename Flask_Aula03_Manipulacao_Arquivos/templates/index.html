@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download/Upload</title>
+</head>
+<body>
+    <h2>Upload de Arquivos</h2>
+    <form action="/diretorio" method="POST" enctype="multipart/form-data">
+        <p>
+            <input type="file" id="meuArquivo" name="meuArquivo" required><br>
+        </p>
+        <p>
+            <button type="submit">Enviar</button>
+        </p>
+    </form>
+
+    <h2>Arquivos disponíveis para Download</h2>
+        {% if arquivos %}
+            {% for arquivo in arquivos %}
+                <div>
+                    <span>{{ arquivo }}</span>
+                    <a href="{{url_for('download', filename=arquivo)}}">Download</a>
+                </div>
+            {% endfor %}
+        {% else %}
+                <p>Nenhum arquivo disponível</p>
+        {% endif %}
+</body>
+</html>
