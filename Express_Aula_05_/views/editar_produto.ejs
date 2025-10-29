@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Produto</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <div class="form-wrapper">
+
+        <h2>Editar Produto: <%= produto.nome %></h2>
+        
+        <form action="/produtos/editar/<%= produto.id %>" method="POST">
+            <div>
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" value="<%= produto.nome %>" required>
+            </div>
+            <div>
+                <label for="preco">Preço:</label>
+                <input type="number" id="preco" name="preco" step="0.01" value="<%= produto.preco %>" required>
+            </div>
+            <div>
+                <label for="categoria">Categoria:</label>
+                <input type="text" id="categoria" name="categoria" value="<%= produto.categoria %>" required>
+            </div>
+            <button type="submit">Atualizar</button>
+        </form>
+        
+        <a href="/produtos">Voltar para a lista</a>
+
+    </div>
+    </body>
+</html>

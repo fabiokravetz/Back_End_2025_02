@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Produtos da Farmácia</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h1>Produtos da Farmácia</h1>
+    <a href="/produtos/adicionar" class="btn-add">Adicionar Novo Produto</a>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Preço (R$)</th>
+                <th>Categoria</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% produtos.forEach(produto => { %>
+                <tr>
+                    <td><%= produto.id %></td>
+                    <td><%= produto.nome %></td>
+                    <td><%= produto.preco.toFixed(2) %></td>
+                    <td><%= produto.categoria %></td>
+                    <td>
+                        <a href="/produtos/editar/<%= produto.id %>">Editar</a>
+                        <a href="/produtos/deletar/<%= produto.id %>" class="delete" 
+                           onclick="return confirm('Tem certeza que deseja deletar este produto?');">
+                           Deletar
+                        </a>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</body>
+</html>
