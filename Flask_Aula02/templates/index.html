@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas</title>
+</head>
+<body>
+    <h1>Adicionar Nova Tarefa</h1>
+    <form action="/criar" method="POST">
+        <input type="text" name="descricao" required>
+        <button type="submit">Criar</button>
+    </form>
+    <h1>Lista de Tarefas</h1>
+    <ul>
+        {% for task in tarefas %}
+        <!--Está sendo retornada a coluna do BD-->
+        <li>{{ task.descricao }}</li>
+        <!--Adicionado para editar-->
+        <form action="/atualizar/{{task.id}}" method="POST" style="display: inline;">
+            <input type="text" name="descricao" value="{{task.descricao}}">
+            <button type="submit">Atualizar</button>
+        </form>
+
+        <!--Adicionado para deletar-->
+        <form action="/deletar/{{task.id}}" method="POST" style="display: inline;">
+            <button type="submit">Excluir</button>
+        </form>
+        {% endfor %}
+    </ul>
+</body>
+</html>
