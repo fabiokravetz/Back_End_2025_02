@@ -1,0 +1,76 @@
+body {
+    font-family: sans-serif;
+    margin: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: red;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: antiquewhite;
+}
+
+a.delete {
+    color: #dc3545;
+    margin-left: 10px;
+}
+
+.btn-add {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 10px 15px;
+    background-color: grey;
+    color: white;
+    border-radius: 5px;
+}
+
+.form-wrapper {
+    max-width: 450px;
+    margin: 40px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+button[type="submit"] {
+    padding: 10px 15px;
+    background-color: gray;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+form + a {
+    display: inline-block;
+    margin-top: 10px;
+}
+
