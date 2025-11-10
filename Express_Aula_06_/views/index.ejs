@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Página Inicial</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Bem-vindo ao Sistema</h1>
+        
+        <% if (userId) { %>
+            <p>Você está logado!</p>
+            <a href="/paginaProtegida">Ir para o Página Protegida</a>
+            <br>
+            <a href="/logout">Fazer Logout</a>
+        <% } else { %>
+            <p>Você não está logado.</p>
+            <a href="/login">Fazer Login</a>
+            <br>
+            <a href="/registro">Registrar-se</a>
+        <% } %>
+    </div>
+</body>
+</html>
