@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Item</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container" style="max-width: 500px;">
+        <h1>Editar Item ID: <%= item.id %></h1>
+        <h2>Editando como <%= username %> (ADMIN)</h2>
+
+        <form action="/paginaProtegida/update/<%= item.id %>" method="POST" class="form-edicao">
+            <div>
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" value="<%= item.nome %>" required>
+            </div>
+            <div>
+                <label for="descricao">Descrição:</label>
+                <textarea id="descricao" name="descricao"><%= item.descricao || '' %></textarea>
+            </div>
+            
+            <button type="submit">Salvar Alterações</button>
+        </form>
+
+        <hr>
+        <a href="/paginaProtegida">Voltar ao Painel</a>
+    </div>
+</body>
+</html>

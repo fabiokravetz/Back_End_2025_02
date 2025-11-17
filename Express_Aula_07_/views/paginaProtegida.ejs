@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Painel de Gerenciamento</h1>
+        
+        <h2>Olá, <%= username %>! (<%= userFuncao.toUpperCase() %>)</h2>
+
+        <h3>Inserir Item</h3>
+        <form action="/paginaProtegida/inserir" method="POST" class="form-insercao">
+            <div>
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
+            </div>
+            <div>
+                <label for="descricao">Descrição:</label>
+                <textarea id="descricao" name="descricao"></textarea>
+            </div>
+      
+      <button type="submit">Adicionar Item</button>
+        </form>
+        <hr>
+
+        <h3>Itens Cadastrados</h3>
+        <% if (items && items.length > 0) { %>
+            <table>
+                <thead>
+                    <tr>
+   
+                     <th>ID</th>
+                        <th>Nome</th>
+                        <th>Descrição</th>
+                        <th>Criação</th>
+                        <% if (userFuncao === 'admin') { %>
+                            <th>Ações</th>
+                        <% } %>
+       
+             </tr>
+                </thead>
+                <tbody>
+                    <% items.forEach(function(item) { %>
+                        <tr>
+        
+                    <td><%= item.id %></td>
+                            <td><%= item.nome %></td>
+                            <td><%= item.descricao || '(Sem descrição)' %></td>
+                            <td><%= new Date(item.criacao).toLocaleString('pt-BR') %></td>
+
+                            <% if (userFuncao === 'admin') { %>
+                                <td>
+                                    <form action="/paginaProtegida/editar/<%= item.id %>">
+                                        <button type="submit">Editar</button>
+                                    </form>
+
+                                    <form action="/paginaProtegida/deletar/<%= item.id %>" method="POST">
+                                        <button type="submit">Deletar</button>
+                                    </form>
+                                </td>
+                            <% } %>
+                        </tr>
+                    <% });
+                    %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p>Nenhum item cadastrado!</p>
+        <% } %>
+        <hr>
+        <a href="/logout">Fazer Logout</a>
+        <br>
+    </div>
+</body>
+</html>
